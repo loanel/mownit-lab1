@@ -7,6 +7,8 @@ import org.jfree.data.xy.XYSeriesCollection;
 import org.jfree.ui.RefineryUtilities;
 
 import javax.swing.*;
+import java.util.HashSet;
+import java.util.Set;
 
 public class TaskFour {
 
@@ -19,14 +21,22 @@ public class TaskFour {
     }
 
     public void zeroTest(float y, float r) {
+        Set<Float> existingNumbers = new HashSet<Float>();
+        boolean cycleOccured = false;
         int iterations = 0;
-        System.out.println("Inital = " + y);
+        float initial = y;
         while (y != 0) {
+            if(existingNumbers.contains(y)){
+                cycleOccured = true;
+                break;
+            }
+            else existingNumbers.add(y);
             iterations++;
             y = floatLogistic(y, r);
 //            System.out.println(y);
         }
-        System.out.println("Iterations = " + iterations);
+        if(!cycleOccured) System.out.println("Initial = " + initial + " , Iterations = " + iterations);
+        else System.out.println("For initial + " + initial + " a cycle occured");
     }
 
     public void taskA() {
@@ -95,15 +105,13 @@ public class TaskFour {
     }
 
     public void taskC() {
-        zeroTest((float)0, 4);
-        zeroTest((float)0.5, 4);
-        zeroTest(1, 4);
-//        zeroTest((float)0.25, 4);
-//        zeroTest((float)0.75, 4);
-
+        for(float i = 0; i <= 1000; i++){
+            zeroTest(i/1000, 4);
+        }
     }
 
     public void calculate() {
+//        uncomment to check result for each task
 //        taskA();
 //        taskB();
         taskC();

@@ -4,6 +4,7 @@ package mownitLab;
 public class App 
 {
     public static void main( String[] args ) {
+//        uncomment to check results of each task
 //        TaskOne task1 = new TaskOne();
 //        task1.calculate();
 //        TaskTwo task2 = new TaskTwo();
