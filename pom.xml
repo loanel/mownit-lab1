@@ -27,5 +27,11 @@
       <version>1.0.19</version>
       <scope>src</scope>
     </dependency>
+    <dependency>
+      <groupId>org.jfree</groupId>
+      <artifactId>jcommon</artifactId>
+      <version>1.0.23</version>
+      <scope>src</scope>
+    </dependency>
   </dependencies>
 </project>
